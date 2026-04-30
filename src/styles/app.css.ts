@@ -5,15 +5,24 @@ import { primaryAccent, primaryAccentMuted } from "./globals.css";
 export const appStyles = style({
   textAlign: "center",
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "column",
   alignContent: "center",
   alignItems: "center",
   fontWeight: 800,
-  flexWrap: "wrap",
-  justifyContent: "space-evenly",
+  justifyContent: "center",
   maxWidth: 1080,
   margin: "0 auto",
-  height: "100%",
+  minHeight: "100%",
+  padding: "1rem",
+  "@media": {
+    "screen and (min-width: 768px)": {
+      flexDirection: "row",
+      flexWrap: "wrap",
+      justifyContent: "space-evenly",
+      alignItems: "center",
+      padding: "0",
+    },
+  },
 });
 
 export const titleStyles = style({
@@ -26,30 +35,39 @@ export const titleStyles = style({
 
 export const levelsStyles = style({
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
   justifyContent: "center",
   alignContent: "center",
   alignItems: "center",
-  width: "17rem",
+  gap: 8,
+  width: "100%",
+  "@media": {
+    "screen and (min-width: 768px)": {
+      flexDirection: "column",
+      width: "17rem",
+      gap: 0,
+    },
+  },
 });
 
 export const levelButtonStyles = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  margin: 15,
+  margin: 6,
   borderRadius: 15,
   border: `solid 2px ${primaryAccent}`,
   backgroundColor: "#fff",
-  height: 88,
-  width: 231,
+  height: 56,
+  flex: "1 1 0",
+  minWidth: 80,
+  maxWidth: 140,
   textTransform: "uppercase",
   color: primaryAccent,
-  fontSize: 18,
+  fontSize: 13,
   fontWeight: 800,
   fontFamily: "inherit",
   cursor: "pointer",
-
   ":hover": {
     backgroundColor: primaryAccentMuted,
     color: "rgb(240, 240, 240)",
@@ -57,6 +75,16 @@ export const levelButtonStyles = style({
   selectors: {
     "&:focus, &:active": {
       outline: "none",
+    },
+  },
+  "@media": {
+    "screen and (min-width: 768px)": {
+      height: 88,
+      width: 231,
+      flex: "none",
+      maxWidth: "none",
+      fontSize: 18,
+      margin: 15,
     },
   },
 });
@@ -73,7 +101,7 @@ export const nextCardButtonStlyes = style({
   justifyContent: "center",
   margin: 25,
   borderRadius: 15,
-  backgroundColor: ["#fff", primaryAccent],
+  backgroundColor: primaryAccent,
   height: 88,
   width: 231,
   textTransform: "uppercase",
@@ -83,7 +111,6 @@ export const nextCardButtonStlyes = style({
   fontWeight: 800,
   fontFamily: '"Biryani", sans-serif',
   border: "none",
-
   ":hover": {
     backgroundColor: primaryAccentMuted,
     color: "rgb(240, 240, 240)",
@@ -94,7 +121,36 @@ export const questionStyles = style({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  width: "26rem",
+  width: "100%",
+  maxWidth: "26rem",
   textTransform: "uppercase",
   alignItems: "center",
+});
+
+export const langButtonStyles = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: 8,
+  marginTop: 16,
+  marginBottom: 16,
+  padding: "10px 20px",
+  borderRadius: 15,
+  border: `solid 2px ${primaryAccent}`,
+  backgroundColor: "#fff",
+  color: primaryAccent,
+  fontSize: 13,
+  fontWeight: 800,
+  fontFamily: "inherit",
+  textTransform: "uppercase",
+  cursor: "pointer",
+  ":hover": {
+    backgroundColor: primaryAccentMuted,
+    color: "#fff",
+  },
+  selectors: {
+    "&:focus, &:active": {
+      outline: "none",
+    },
+  },
 });
